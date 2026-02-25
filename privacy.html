@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — TrackPulse by Stella Sourcing</title>
+  <meta name="description" content="TrackPulse Privacy Policy. How we access, use, store, and protect your data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #F5F0EB; --charcoal: #1A1A1A; --warm-gray: #8A8279;
+      --gold: #B8956A; --cream: #FAF7F4; --text: #2C2824;
+      --text-light: #6B6560; --border: #E0D8D0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      color: var(--text); background: var(--ivory);
+      -webkit-font-smoothing: antialiased;
+    }
+    .top-bar {
+      padding: 20px clamp(24px, 4vw, 60px);
+      background: rgba(245, 240, 235, 0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .top-bar a {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--charcoal);
+      text-decoration: none;
+    }
+    .top-bar .back {
+      font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 400;
+      letter-spacing: 1px; text-transform: uppercase; color: var(--gold);
+      text-decoration: none;
+    }
+    .policy-container {
+      max-width: 780px; margin: 0 auto; padding: 60px 24px 80px;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 400;
+      margin-bottom: 8px; color: var(--charcoal);
+    }
+    .effective {
+      font-size: 14px; color: var(--text-light); margin-bottom: 40px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500;
+      margin: 36px 0 12px; color: var(--charcoal);
+    }
+    p, li {
+      font-size: 15px; line-height: 1.8; margin-bottom: 14px; color: var(--text);
+    }
+    ul { padding-left: 24px; margin-bottom: 14px; }
+    li { margin-bottom: 6px; }
+    a { color: var(--gold); }
+    .trademark {
+      margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-light);
+    }
+    footer {
+      text-align: center; padding: 32px 24px; font-size: 13px; color: var(--text-light);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--gold); text-decoration: none; margin: 0 12px; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="index.html">Stella Sourcing</a>
+    <a href="index.html" class="back">&larr; Back to Home</a>
+  </div>
+
+  <div class="policy-container">
+    <h1>TrackPulse Privacy Policy</h1>
+    <p class="effective">Effective Date: February 25, 2026 | Last Updated: February 25, 2026</p>
+
+    <p>TrackPulse ("we," "our," or "the Service") is a Gmail™ add-on developed by Stella Sourcing LLC that automatically extracts shipment tracking numbers from your email and provides real-time shipment status updates. This Privacy Policy explains what data we access, how we use it, and how we protect it.</p>
+
+    <h2>1. Information We Access</h2>
+    <p>TrackPulse accesses the following data through Google Workspace™ APIs:</p>
+    <p><strong>Gmail Messages (Read-Only):</strong> We scan your email subject lines, body text, and PDF attachments to identify air waybill (AWB) and tracking numbers. We store only a brief snippet (up to 200 characters) of the email text surrounding the tracking number for context display. We do NOT store or process the full content of your emails. TrackPulse has read-only access to Gmail — it cannot modify, delete, move, or send emails on your behalf.</p>
+    <p><strong>Google Drive™:</strong> PDF attachments from shipping-related emails are temporarily uploaded to your Google Drive for text extraction (OCR). These temporary files are immediately deleted after processing.</p>
+    <p><strong>User Profile:</strong> We access your Google™ email address for authentication purposes and to identify your organization's email domain.</p>
+
+    <h2>2. How We Use Your Data</h2>
+    <p>Tracking numbers and carrier codes extracted from your emails are sent to 17Track's API to retrieve shipment status, carrier identification, and delivery information.</p>
+    <p>Shipment data (tracking numbers, carrier names, shipper and customer names, status updates, and email context snippets) is stored in your Google account via Google Apps Script™ UserProperties. This data exists only within your own Google account and is not accessible to other users.</p>
+    <p>If you enable Slack™ integration, shipment status updates (shipper name, customer name, tracking number, carrier, and status) are sent to your designated Slack workspace via a webhook URL that you provide and configure.</p>
+    <p>If you use the Export feature, a CSV file is generated and downloaded directly to your device containing your current shipment data. No data is stored externally during this process.</p>
+    <p>Email alert notifications about shipment status changes are sent to your configured email address (or your Google account email by default) using Google's built-in email service.</p>
+    <p>We do not use your data for advertising, marketing, profiling, or any purpose other than providing the TrackPulse shipment tracking service.</p>
+
+    <h2>3. Third-Party Services</h2>
+    <p><strong>17Track API (17track.net):</strong> Tracking numbers and carrier codes are sent to 17Track to retrieve shipment status information. No email content, personal information, business names, or Google account data is shared with 17Track — only the tracking number and a numeric carrier code. 17Track's privacy policy governs their handling of this data.</p>
+    <p><strong>Slack (slack.com):</strong> If you configure Slack integration by providing a webhook URL and enabling notification categories in Settings, shipment status summaries are sent to your Slack workspace. This includes shipper names, customer names, tracking numbers, carrier names, and status changes. No data is sent to Slack unless you explicitly configure and enable this feature.</p>
+    <p>No data is transmitted to any other external services. Outbound network requests are restricted to api.17track.net and hooks.slack.com via the add-on's URL fetch whitelist.</p>
+
+    <h2>4. Data Storage and Security</h2>
+    <p>All shipment data is stored within your Google account using Google Apps Script UserProperties. Each user's data is completely isolated — no user can access another user's data. We do not maintain external databases or servers that store your information.</p>
+    <p>TrackPulse runs entirely within Google's infrastructure (Google Apps Script). No user data leaves Google's servers except when sent to 17Track for status checking or to Slack if configured by you.</p>
+    <p>Temporary files created during PDF text extraction are immediately deleted from your Google Drive after processing.</p>
+    <p>Your 17Track API key and Slack webhook URL are stored in your own Google Apps Script UserProperties. They are never transmitted to any service other than their intended destination.</p>
+    <p>Authentication is handled through Google's OAuth 2.0 system. We never see or store your Google password.</p>
+
+    <h2>5. Data Sharing</h2>
+    <p>We do not sell, rent, trade, or share your personal data with any third parties except as described in Section 3 above (17Track for shipment tracking queries, and Slack if configured by you). We do not share your data with advertisers, data brokers, or analytics providers.</p>
+
+    <h2>6. Data Retention and Deletion</h2>
+    <p>Active shipment data is retained in UserProperties for up to 30 days. Delivered shipments are automatically archived and eventually removed through built-in storage management.</p>
+    <p>You can clear all TrackPulse data at any time using the "Clear All Data" option in the TrackPulse Settings panel within Gmail™.</p>
+    <p>Uninstalling TrackPulse removes the add-on's access to your Gmail. To ensure complete removal of stored data, use "Clear All Data" in Settings before uninstalling, or revoke access via your Google Account settings (Security &gt; Third-party apps with account access).</p>
+    <p>To request information about your data or its complete removal, contact us at the email below.</p>
+
+    <h2>7. Google API Services User Data Policy</h2>
+    <p>TrackPulse's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Specifically:</p>
+    <ul>
+      <li>We only use Google user data for the purpose of providing and improving the TrackPulse shipment tracking service.</li>
+      <li>We do not transfer Google user data to third parties except as necessary to provide the service (17Track for tracking status), with user consent (Slack integration), or as required by law.</li>
+      <li>We do not use Google user data for serving advertisements.</li>
+      <li>We do not allow humans to read Google user data unless: (a) we have the user's affirmative consent, (b) it is necessary for security purposes, (c) it is necessary to comply with applicable law, or (d) the data is aggregated and anonymized for internal operations.</li>
+    </ul>
+
+    <h2>8. OAuth Scopes Used</h2>
+    <p>TrackPulse requests the following Google OAuth permissions. Each scope is used for a specific, necessary purpose:</p>
+    <ul>
+      <li><strong>Gmail Add-on Execute:</strong> Required for the Gmail add-on framework to operate.</li>
+      <li><strong>Gmail Current Message Read-Only:</strong> Reads the currently open email to detect tracking numbers.</li>
+      <li><strong>Gmail Read-Only:</strong> Searches your inbox for shipping-related emails and reads their content for tracking number extraction.</li>
+      <li><strong>External Requests:</strong> Communicates with the 17Track API and Slack webhooks.</li>
+      <li><strong>User Email:</strong> Identifies you for authentication and determines your organization's domain.</li>
+      <li><strong>User Locale:</strong> Detects your language and regional settings for proper date and time formatting.</li>
+      <li><strong>Send Email:</strong> Sends shipment status change alert emails to your configured address.</li>
+      <li><strong>Drive (file-scoped):</strong> Creates and deletes temporary files for PDF text extraction via OCR.</li>
+      <li><strong>Script App:</strong> Creates and manages time-based triggers for automatic shipment scanning.</li>
+    </ul>
+
+    <h2>9. Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access all data TrackPulse stores about your shipments via the add-on sidebar or web dashboard.</li>
+      <li>Delete all your data at any time using "Clear All Data" in Settings.</li>
+      <li>Export your data as a CSV download for your records.</li>
+      <li>Revoke TrackPulse's access to your Google account at any time via your Google Account settings (Security &gt; Third-party apps with account access).</li>
+      <li>Request information about what data we process on your behalf by contacting us at the email below.</li>
+    </ul>
+
+    <h2>10. Children's Privacy</h2>
+    <p>TrackPulse is a business-to-business shipment tracking tool and is not intended for use by individuals under the age of 13. We do not knowingly collect data from children.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify users of material changes through the add-on interface or via email. The "Last Updated" date at the top of this page reflects the most recent revision. Continued use of TrackPulse after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>Contact Us</h2>
+    <p>
+      <strong>Stella Sourcing LLC</strong><br>
+      262 West 38th Street, Suite 1706<br>
+      New York, NY 10018<br>
+      Email: <a href="mailto:aydin@stellasourcing.com">aydin@stellasourcing.com</a><br>
+      Website: <a href="https://stellasourcing.com">stellasourcing.com</a>
+    </p>
+
+    <p class="trademark">Gmail™, Google Workspace™, Google Drive™, and Google Apps Script™ are trademarks of Google LLC. Slack™ is a trademark of Salesforce, Inc. TrackPulse is not endorsed by or affiliated with Google LLC or Salesforce, Inc.</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Stella Sourcing LLC. All rights reserved.</p>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+</body>
+</html>
