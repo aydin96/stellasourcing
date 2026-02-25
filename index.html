@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stella Sourcing — International Textile Agency</title>
+  <meta name="description" content="Stella Sourcing is a New York-based textile sourcing agency representing premium international mills. 15+ years connecting global fabric suppliers with American fashion brands.">
+  <meta property="og:title" content="Stella Sourcing — International Textile Agency">
+  <meta property="og:description" content="Premium textile sourcing from the world's finest mills. Based in New York's Garment District.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stellasourcing.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #F5F0EB;
+      --charcoal: #1A1A1A;
+      --warm-gray: #8A8279;
+      --gold: #B8956A;
+      --gold-light: #D4B896;
+      --cream: #FAF7F4;
+      --deep: #0D0D0D;
+      --text: #2C2824;
+      --text-light: #6B6560;
+      --border: #E0D8D0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--ivory);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============ NAVIGATION ============ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 clamp(24px, 4vw, 60px); height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    nav.scrolled {
+      background: rgba(245, 240, 235, 0.95);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--charcoal);
+      text-decoration: none; transition: opacity 0.3s;
+    }
+    nav:not(.scrolled) .nav-logo { color: white; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--charcoal); text-decoration: none; position: relative; transition: color 0.3s;
+    }
+    nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.85); }
+    nav:not(.scrolled) .nav-links a:hover { color: white; }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+      background: var(--gold); transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 28px; height: 20px; position: relative;
+    }
+    .nav-toggle span {
+      display: block; width: 100%; height: 1.5px; background: var(--charcoal);
+      position: absolute; left: 0; transition: all 0.3s;
+    }
+    nav:not(.scrolled) .nav-toggle span { background: white; }
+    .nav-toggle span:nth-child(1) { top: 0; }
+    .nav-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .nav-toggle span:nth-child(3) { bottom: 0; }
+
+    /* ============ HERO ============ */
+    .hero {
+      height: 100vh; min-height: 600px; position: relative;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(13,13,13,0.7) 0%, rgba(13,13,13,0.3) 40%, rgba(13,13,13,0.5) 100%),
+        url('https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1920&q=80') center/cover no-repeat;
+      transform: scale(1.05); animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom { 0% { transform: scale(1.05); } 100% { transform: scale(1.12); } }
+    .hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 0 24px; }
+    .hero-eyebrow {
+      font-size: 13px; font-weight: 400; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 28px; opacity: 0; animation: fadeUp 1s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 7vw, 90px);
+      font-weight: 300; line-height: 1.1; letter-spacing: -1px; margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 1s 0.6s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px); font-weight: 300; color: rgba(255,255,255,0.7);
+      max-width: 520px; margin: 0 auto; line-height: 1.7; opacity: 0; animation: fadeUp 1s 0.9s forwards;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      opacity: 0; animation: fadeUp 1s 1.2s forwards;
+    }
+    .hero-scroll .line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.4; height: 40px; } 50% { opacity: 1; height: 50px; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ============ SECTIONS ============ */
+    section { padding: clamp(80px, 10vw, 140px) clamp(24px, 8vw, 120px); }
+    .section-label {
+      font-size: 12px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4.5vw, 56px);
+      font-weight: 300; line-height: 1.2; color: var(--charcoal); margin-bottom: 24px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    /* ============ ABOUT ============ */
+    .about { background: var(--cream); }
+    .about-content {
+      max-width: 800px; margin: 0 auto; text-align: center;
+    }
+    .about-content .section-label,
+    .about-content .section-title { text-align: center; }
+    .about-text p {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.8;
+      color: var(--text-light); margin-bottom: 20px; text-align: left;
+    }
+    .about-text p:first-of-type {
+      font-size: clamp(18px, 1.6vw, 21px); color: var(--text); font-weight: 300;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+      margin-top: 48px; border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .stat { text-align: center; }
+    .stat:not(:last-child) { border-right: 1px solid var(--border); }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300; color: var(--charcoal); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 12px; font-weight: 400; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--warm-gray);
+    }
+
+    /* ============ SERVICES ============ */
+    .services { background: var(--deep); color: white; }
+    .services .section-title { color: white; }
+    .services-intro {
+      max-width: 600px; font-size: clamp(16px, 1.4vw, 18px); line-height: 1.8;
+      color: rgba(255,255,255,0.55); margin-bottom: 60px;
+    }
+    .services-stack {
+      display: flex; flex-direction: column; gap: 1px;
+      background: rgba(255,255,255,0.08); max-width: 800px;
+    }
+    .service-card {
+      background: var(--deep); padding: clamp(32px, 3vw, 48px); transition: background 0.4s;
+    }
+    .service-card:hover { background: #151515; }
+    .service-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300;
+      color: var(--gold); opacity: 0.4; margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2vw, 28px);
+      font-weight: 400; margin-bottom: 16px;
+    }
+    .service-card p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.5); }
+
+    /* ============ MILL PARTNERS ============ */
+    .partners { background: var(--ivory); }
+    .partners-intro {
+      max-width: 600px; font-size: clamp(16px, 1.4vw, 18px); line-height: 1.8;
+      color: var(--text-light); margin-bottom: 60px;
+    }
+    .mill-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border); max-width: 1000px;
+    }
+    .mill-card {
+      background: var(--cream); padding: 28px 20px; display: flex; flex-direction: column;
+      text-decoration: none; transition: all 0.3s;
+    }
+    .mill-card:hover { background: white; transform: translateY(-2px); }
+    .mill-card-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500;
+      color: var(--charcoal); margin-bottom: 4px;
+    }
+    .mill-card-origin {
+      font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .mill-card-desc {
+      font-size: 13px; line-height: 1.6; color: var(--text-light); flex-grow: 1;
+    }
+
+    /* ============ TRACKPULSE ============ */
+    .trackpulse { background: var(--cream); border-top: 1px solid var(--border); }
+    .tp-container { max-width: 1000px; margin: 0 auto; }
+    .tp-badge {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold);
+      padding: 6px 16px; border-radius: 20px; margin-bottom: 24px;
+    }
+    .tp-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px);
+      align-items: center; margin-top: 48px;
+    }
+    .tp-text p {
+      font-size: clamp(15px, 1.3vw, 17px); line-height: 1.8;
+      color: var(--text-light); margin-bottom: 16px;
+    }
+    .tp-features { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .tp-feature { display: flex; align-items: flex-start; gap: 14px; }
+    .tp-feature-icon {
+      width: 32px; height: 32px; border-radius: 8px; background: var(--gold);
+      color: white; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 14px; margin-top: 2px;
+    }
+    .tp-feature-text h4 {
+      font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 500;
+      color: var(--charcoal); margin-bottom: 2px;
+    }
+    .tp-feature-text p { font-size: 14px; color: var(--text-light); margin: 0; line-height: 1.5; }
+
+    .tp-visual {
+      background: var(--deep); border-radius: 12px; padding: 40px;
+      position: relative; overflow: hidden;
+    }
+    .tp-visual::before {
+      content: ''; position: absolute; top: -50%; right: -50%;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(184,149,106,0.15) 0%, transparent 70%);
+    }
+    .tp-mockup { position: relative; z-index: 1; }
+    .tp-mockup-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .tp-mockup-logo {
+      width: 28px; height: 28px; border-radius: 8px;
+    }
+    .tp-mockup-title { font-size: 16px; font-weight: 500; color: white; letter-spacing: 1px; }
+    .tp-mockup-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .tp-mockup-awb { font-family: monospace; font-size: 13px; color: rgba(255,255,255,0.7); }
+    .tp-mockup-status {
+      font-size: 12px; padding: 4px 12px; border-radius: 12px;
+      font-weight: 500; letter-spacing: 0.5px;
+    }
+    .status-transit { background: rgba(59,130,246,0.15); color: #60A5FA; }
+    .status-delivered { background: rgba(34,197,94,0.15); color: #4ADE80; }
+    .status-customs { background: rgba(251,191,36,0.15); color: #FBBF24; }
+
+    .tp-cta {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 32px;
+      font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--gold); text-decoration: none; transition: gap 0.3s;
+    }
+    .tp-cta:hover { gap: 14px; }
+    .tp-cta svg { width: 18px; height: 18px; transition: transform 0.3s; }
+
+    /* ============ CONTACT ============ */
+    .contact { background: var(--deep); color: white; }
+    .contact .section-title { color: white; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px);
+      max-width: 1000px; margin-top: 48px;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 36px; }
+    .contact-block h4 {
+      font-size: 12px; font-weight: 500; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .contact-block p, .contact-block a {
+      font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.6);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .contact-block a:hover { color: white; }
+    .contact-right { display: flex; align-items: center; justify-content: center; }
+    .contact-cta {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3vw, 36px);
+      font-weight: 300; font-style: italic; color: rgba(255,255,255,0.3);
+      line-height: 1.5; text-align: center;
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--deep); border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px clamp(24px, 8vw, 120px); display: flex;
+      justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ============ REVEAL ANIMATIONS ============ */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .tp-grid, .contact-grid { grid-template-columns: 1fr; }
+      .mill-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: fixed;
+        top: 72px; left: 0; right: 0; bottom: 0; background: var(--ivory);
+        padding: 48px; gap: 28px; z-index: 99;
+      }
+      .nav-links.open a { color: var(--charcoal) !important; font-size: 18px; }
+      .tp-visual { order: -1; }
+      .contact-right { display: none; }
+    }
+    @media (max-width: 500px) {
+      .about-stats { grid-template-columns: 1fr; gap: 24px; }
+      .stat:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+      .mill-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Stella Sourcing</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#partners">Mills</a></li>
+      <li><a href="#trackpulse">TrackPulse</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">New York · International Textile Agency</p>
+      <h1 class="hero-title">Where the World's <em>Finest Fabrics</em><br>Meet American Fashion</h1>
+      <p class="hero-sub">Stella Sourcing connects premier international mills with the brands that define American style. Based in New York's Garment District since 2010.</p>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="about-content reveal">
+      <p class="section-label">About</p>
+      <h2 class="section-title">A Bridge Between <em>Craft</em> and Commerce</h2>
+      <div class="about-text">
+        <p>Stella Sourcing is a New York-based textile agency with over 15 years of experience in the global fabric trade. We represent a curated portfolio of international mills — specializing in Turkish wovens, knits, and embroidery, alongside Korean textile innovators — serving the American fashion market.</p>
+        <p>Our role goes beyond sourcing. We guide brands through fabric development and ensure that quality, timing, and price align at every stage. We speak the language of both the mill floor and the design studio.</p>
+        <p>With deep roots in the Garment District and relationships built across Turkey, South Korea, and the global textile landscape, we bring the world's most interesting fabrics to the brands that need them.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat"><div class="stat-number">15+</div><div class="stat-label">Years</div></div>
+        <div class="stat"><div class="stat-number">9</div><div class="stat-label">Mill Partners</div></div>
+        <div class="stat"><div class="stat-number">3</div><div class="stat-label">Continents</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="reveal">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">End-to-End <em>Textile Sourcing</em></h2>
+      <p class="services-intro">From first swatch to final delivery, we manage every dimension of the fabric sourcing process so our partners can focus on design and growth.</p>
+    </div>
+    <div class="services-stack reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Mill Representation</h3>
+        <p>We are the U.S. sales arm for a curated portfolio of international mills. We present collections, manage sampling, and drive business development on their behalf in the American market.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Fabric Development</h3>
+        <p>Custom fabric development from concept to production. We work with mills to match specific weight, hand, finish, and performance requirements for each brand's vision.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Sourcing & Procurement</h3>
+        <p>Strategic sourcing across our global network. We find the right mill for the right project — balancing quality, minimums, lead times, and price to meet every brief.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MILL PARTNERS ============ -->
+  <section class="partners" id="partners">
+    <div class="reveal">
+      <p class="section-label">Our Mills</p>
+      <h2 class="section-title">A Global <em>Portfolio</em></h2>
+      <p class="partners-intro">We represent mills across Turkey and South Korea — each selected for their craft, innovation, and reliability. Contact us for our full mill portfolio.</p>
+    </div>
+    <div class="mill-grid reveal">
+      <a href="https://www.ozdoku.com/" target="_blank" class="mill-card">
+        <div class="mill-card-name">Özdoku</div>
+        <div class="mill-card-origin">Istanbul, Turkey</div>
+        <div class="mill-card-desc">Dobby & jacquard woven fabrics in polyviscose, cotton, linen & wool blends. Founded 1970, 900K meters/month capacity.</div>
+      </a>
+      <a href="https://marsalatextile.com/" target="_blank" class="mill-card">
+        <div class="mill-card-name">Marsala</div>
+        <div class="mill-card-origin">Bursa, Turkey</div>
+        <div class="mill-card-desc">Integrated weaving, dyeing & finishing facility. 84 years of experience in quality fabric production. 1.5M meters/month.</div>
+      </a>
+      <a href="https://dynamofabrics.com/" target="_blank" class="mill-card">
+        <div class="mill-card-name">Dynamo</div>
+        <div class="mill-card-origin">Istanbul, Turkey</div>
+        <div class="mill-card-desc">Cotton & natural blend woven fabrics with trendsetting collections since 1991. Première Vision exhibitor.</div>
+      </a>
+      <a href="https://www.yunsa.com/en" target="_blank" class="mill-card">
+        <div class="mill-card-name">Yunsa</div>
+        <div class="mill-card-origin">Çerkezköy, Turkey</div>
+        <div class="mill-card-desc">Europe's largest integrated worsted wool fabric manufacturer. Top 5 worldwide. Wool, cashmere & silk blends since 1973.</div>
+      </a>
+      <a href="https://www.instagram.com/hantastextile/" target="_blank" class="mill-card">
+        <div class="mill-card-name">Hantaş</div>
+        <div class="mill-card-origin">Bursa, Turkey</div>
+        <div class="mill-card-desc">Jacquard weaving & printing specialist. Polyester, viscose, cotton, linen & Tencel fabrics since 1997.</div>
+      </a>
+      <a href="https://www.sapphirebrode.com/en" target="_blank" class="mill-card">
+        <div class="mill-card-name">Sapphire Brode</div>
+        <div class="mill-card-origin">İzmir, Turkey</div>
+        <div class="mill-card-desc">Embroidery & lace specialist — French lace, quilting, bridal & evening wear embroidery for fashion and home textile.</div>
+      </a>
+      <a href="https://iljoongtex.com/" target="_blank" class="mill-card">
+        <div class="mill-card-name">IL Joong</div>
+        <div class="mill-card-origin">Seoul, South Korea</div>
+        <div class="mill-card-desc">Global textile company offering woven, knit, faux leather, tweed & velvet fabrics for contemporary fashion.</div>
+      </a>
+      <a href="https://www.ozenmensucat.com.tr/en" target="_blank" class="mill-card">
+        <div class="mill-card-name">Özen Mensucat</div>
+        <div class="mill-card-origin">Çerkezköy, Turkey</div>
+        <div class="mill-card-desc">Knitted fabric dyeing & finishing pioneer. Part of Taha Group. Natural dyeing innovator, 50 tons/day since 1994.</div>
+      </a>
+      <a href="https://www.mesura.com.tr/en" target="_blank" class="mill-card">
+        <div class="mill-card-name">Mesura Garments</div>
+        <div class="mill-card-origin">Istanbul, Turkey</div>
+        <div class="mill-card-desc">Full-service garment manufacturer — design, sourcing, sampling & production. 150K units/month capacity since 2011.</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ TRACKPULSE ============ -->
+  <section class="trackpulse" id="trackpulse">
+    <div class="tp-container">
+      <div class="reveal">
+        <span class="tp-badge">Our Technology</span>
+        <h2 class="section-title">TrackPulse — Shipment Tracker for Gmail™</h2>
+      </div>
+      <div class="tp-grid">
+        <div class="tp-text reveal">
+          <p>Born from our own experience managing dozens of international shipments every week, TrackPulse is a purpose-built tracking tool for textile and fashion sourcing professionals.</p>
+          <p>It automatically detects tracking numbers in your Gmail™ inbox, monitors shipment status across carriers worldwide, and delivers real-time updates — so you always know where your fabric is.</p>
+          <div class="tp-features">
+            <div class="tp-feature">
+              <div class="tp-feature-icon">📧</div>
+              <div class="tp-feature-text">
+                <h4>Automatic Detection</h4>
+                <p>Scans your inbox for AWB numbers — no manual entry required</p>
+              </div>
+            </div>
+            <div class="tp-feature">
+              <div class="tp-feature-icon">🌍</div>
+              <div class="tp-feature-text">
+                <h4>Multi-Carrier Tracking</h4>
+                <p>DHL, FedEx, UPS, TNT, and 100+ international carriers</p>
+              </div>
+            </div>
+            <div class="tp-feature">
+              <div class="tp-feature-icon">⚡</div>
+              <div class="tp-feature-text">
+                <h4>Real-Time Alerts</h4>
+                <p>Slack notifications and status updates as shipments move</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="tp-cta">
+            Interested in TrackPulse? Get in touch
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="tp-visual reveal">
+          <div class="tp-mockup">
+            <div class="tp-mockup-header">
+              <img src="data:image/png;base64,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" class="tp-mockup-logo" alt="TrackPulse">
+              <span class="tp-mockup-title"><span style="color:white;">Track</span><span style="color:var(--gold);">Pulse</span></span>
+            </div>
+            <div class="tp-mockup-row">
+              <span class="tp-mockup-awb">DHL 5693835836</span>
+              <span class="tp-mockup-status status-transit">In Transit</span>
+            </div>
+            <div class="tp-mockup-row">
+              <span class="tp-mockup-awb">FDX 7749281056</span>
+              <span class="tp-mockup-status status-delivered">Delivered</span>
+            </div>
+            <div class="tp-mockup-row">
+              <span class="tp-mockup-awb">UPS 1Z9R72840</span>
+              <span class="tp-mockup-status status-customs">In Customs</span>
+            </div>
+            <div class="tp-mockup-row">
+              <span class="tp-mockup-awb">DHL 2847193650</span>
+              <span class="tp-mockup-status status-transit">In Transit</span>
+            </div>
+            <div class="tp-mockup-row">
+              <span class="tp-mockup-awb">TNT 6583920174</span>
+              <span class="tp-mockup-status status-delivered">Delivered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:48px; font-size:12px; color:var(--text-light);">Gmail™ and Google Workspace™ are trademarks of Google LLC. TrackPulse is not affiliated with or endorsed by Google.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let's Work <em>Together</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-block">
+          <h4>Visit</h4>
+          <p>262 West 38th Street<br>Suite 1706<br>New York, NY 10018</p>
+        </div>
+        <div class="contact-block">
+          <h4>Email</h4>
+          <a href="/cdn-cgi/l/email-protection#f899819c9196b88b8c9d9494998b978d8a9b91969fd69b9795"><span class="__cf_email__" data-cfemail="dfbea6bbb6b19facabbab3b3beacb0aaadbcb6b1b8f1bcb0b2">[email&#160;protected]</span></a>
+        </div>
+        <div class="contact-block">
+          <h4>Phone</h4>
+          <a href="tel:+16464509665">(646) 450-WOOL — Office</a><br>
+          <a href="tel:+12019235939">(201) 923-5939 — Mobile</a>
+        </div>
+        <div class="contact-block">
+          <h4>Hours</h4>
+          <p>Monday — Friday<br>9:00 AM — 6:00 PM EST</p>
+        </div>
+      </div>
+      <div class="contact-right reveal">
+        <p class="contact-cta">"The fabric is the<br>foundation of everything<br>that follows."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <p class="footer-copy">&copy; 2026 Stella Sourcing LLC. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#trackpulse">TrackPulse</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); });
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = 
