@@ -75,18 +75,18 @@
 
   <div class="policy-container">
     <h1>TrackPulse Privacy Policy</h1>
-    <p class="effective">Effective Date: February 25, 2026 | Last Updated: February 25, 2026</p>
+    <p class="effective">Effective Date: February 25, 2026 | Last Updated: February 27, 2026</p>
 
-    <p>TrackPulse ("we," "our," or "the Service") is a Gmail™ add-on developed by Stella Sourcing LLC that automatically extracts shipment tracking numbers from your email and provides real-time shipment status updates. This Privacy Policy explains what data we access, how we use it, and how we protect it.</p>
+    <p>TrackPulse ("we," "our," or "the Service") is a Gmail™ add-on developed by Stella Sourcing LLC that detects shipment tracking numbers in your emails as you view them and provides real-time shipment status updates. This Privacy Policy explains what data we access, how we use it, and how we protect it.</p>
 
     <h2>1. Information We Access</h2>
     <p>TrackPulse accesses the following data through Google Workspace™ APIs:</p>
-    <p><strong>Gmail Messages (Read-Only):</strong> We scan your email subject lines, body text, and PDF attachments to identify air waybill (AWB) and tracking numbers. We store only a brief snippet (up to 200 characters) of the email text surrounding the tracking number for context display. We do NOT store or process the full content of your emails. TrackPulse has read-only access to Gmail — it cannot modify, delete, move, or send emails on your behalf.</p>
-    <p><strong>Google Drive™:</strong> PDF attachments from shipping-related emails are temporarily uploaded to your Google Drive for text extraction (OCR). These temporary files are immediately deleted after processing.</p>
+    <p><strong>Gmail Messages (Current Message, Read-Only):</strong> When you open an email in Gmail with the TrackPulse sidebar active, we read the subject line and body text of that email to identify air waybill (AWB) and tracking numbers. We store only a brief snippet (up to 200 characters) of the email text surrounding the tracking number for context display. We do NOT store or process the full content of your emails. TrackPulse has read-only access to the currently open email — it cannot access other emails in your inbox, and it cannot modify, delete, move, or send emails on your behalf.</p>
+    <p><strong>Manual Entry:</strong> You may also paste tracking numbers directly into TrackPulse using the manual entry box. No email data is accessed for manually entered tracking numbers.</p>
     <p><strong>User Profile:</strong> We access your Google™ email address for authentication purposes and to identify your organization's email domain.</p>
 
     <h2>2. How We Use Your Data</h2>
-    <p>Tracking numbers and carrier codes extracted from your emails are sent to 17Track's API to retrieve shipment status, carrier identification, and delivery information.</p>
+    <p>Tracking numbers and carrier codes extracted from your emails (or entered manually) are sent to 17Track's API to retrieve shipment status, carrier identification, and delivery information.</p>
     <p>Shipment data (tracking numbers, carrier names, shipper and customer names, status updates, and email context snippets) is stored in your Google account via Google Apps Script™ UserProperties. This data exists only within your own Google account and is not accessible to other users.</p>
     <p>If you enable Slack™ integration, shipment status updates (shipper name, customer name, tracking number, carrier, and status) are sent to your designated Slack workspace via a webhook URL that you provide and configure.</p>
     <p>If you use the Export feature, a CSV file is generated and downloaded directly to your device containing your current shipment data. No data is stored externally during this process.</p>
@@ -101,7 +101,6 @@
     <h2>4. Data Storage and Security</h2>
     <p>All shipment data is stored within your Google account using Google Apps Script UserProperties. Each user's data is completely isolated — no user can access another user's data. We do not maintain external databases or servers that store your information.</p>
     <p>TrackPulse runs entirely within Google's infrastructure (Google Apps Script). No user data leaves Google's servers except when sent to 17Track for status checking or to Slack if configured by you.</p>
-    <p>Temporary files created during PDF text extraction are immediately deleted from your Google Drive after processing.</p>
     <p>Your 17Track API key and Slack webhook URL are stored in your own Google Apps Script UserProperties. They are never transmitted to any service other than their intended destination.</p>
     <p>Authentication is handled through Google's OAuth 2.0 system. We never see or store your Google password.</p>
 
@@ -127,14 +126,12 @@
     <p>TrackPulse requests the following Google OAuth permissions. Each scope is used for a specific, necessary purpose:</p>
     <ul>
       <li><strong>Gmail Add-on Execute:</strong> Required for the Gmail add-on framework to operate.</li>
-      <li><strong>Gmail Current Message Read-Only:</strong> Reads the currently open email to detect tracking numbers.</li>
-      <li><strong>Gmail Read-Only:</strong> Searches your inbox for shipping-related emails and reads their content for tracking number extraction.</li>
+      <li><strong>Gmail Current Message Read-Only:</strong> Reads the currently open email to detect tracking numbers when you view an email with the TrackPulse sidebar active.</li>
       <li><strong>External Requests:</strong> Communicates with the 17Track API and Slack webhooks.</li>
       <li><strong>User Email:</strong> Identifies you for authentication and determines your organization's domain.</li>
       <li><strong>User Locale:</strong> Detects your language and regional settings for proper date and time formatting.</li>
       <li><strong>Send Email:</strong> Sends shipment status change alert emails to your configured address.</li>
-      <li><strong>Drive (file-scoped):</strong> Creates and deletes temporary files for PDF text extraction via OCR.</li>
-      <li><strong>Script App:</strong> Creates and manages time-based triggers for automatic shipment scanning.</li>
+      <li><strong>Script App:</strong> Creates and manages time-based triggers for automatic shipment status refresh on a schedule set by the user.</li>
     </ul>
 
     <h2>9. Your Rights</h2>
@@ -162,7 +159,7 @@
       Website: <a href="https://stellasourcing.com">stellasourcing.com</a>
     </p>
 
-    <p class="trademark">Gmail™, Google Workspace™, Google Drive™, and Google Apps Script™ are trademarks of Google LLC. Slack™ is a trademark of Salesforce, Inc. TrackPulse is not endorsed by or affiliated with Google LLC or Salesforce, Inc.</p>
+    <p class="trademark">Gmail™, Google Workspace™, and Google Apps Script™ are trademarks of Google LLC. Slack™ is a trademark of Salesforce, Inc. TrackPulse is not endorsed by or affiliated with Google LLC or Salesforce, Inc.</p>
   </div>
 
   <footer>
