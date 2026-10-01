@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap: the list of pages we want Google to find.
+  To add a page later: copy the <url> block, change <loc> to the new address
+  and <lastmod> to the day it changed (YYYY-MM-DD).
+  privacy.html / terms.html are left out on purpose: they only forward
+  visitors to the TrackPulse legal pages on trackpulseapp.com.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://stellasourcing.com/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+</urlset>
